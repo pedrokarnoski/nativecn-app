@@ -5,8 +5,11 @@ import { User } from "@/components/User";
 import { Preferences } from "@/components/Preferences";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
+import { useToast } from "@/components/Toast";
 
 export function Profile() {
+  const { toast } = useToast();
+
   return (
     <ScrollView className="flex-1 bg-gray-700">
       <Image
@@ -22,7 +25,7 @@ export function Profile() {
         <View className="w-full mt-6 flex-1">
           <Text className="text-white text-base font-bold mb-2">Company</Text>
           <Input placeholder="Company" inputClasses="mb-6" />
-          <Button label="Save" variant={"default"} />
+          <Button label="Save" onPress={() => toast("Saved!")} />
         </View>
       </View>
     </ScrollView>
